@@ -1,4 +1,5 @@
 {
-  "message": "Hello from Flask API",
-  "status": "success"
+  "message": "Updated JSON from Dishant_new branch",
+  "status": "success",
+  "author": "Dishant"
 }
