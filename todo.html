@@ -7,6 +7,11 @@
 <body>
     <h1>To-Do Form</h1>
     <form id="todoForm">
+        <!-- Item ID -->
+        <label>Item ID:</label>
+        <input type="text" name="itemId" required><br><br>
+
+        <!-- Existing fields -->
         <label>Item Name:</label>
         <input type="text" name="itemName" required><br><br>
 
@@ -20,15 +25,21 @@
         const form = document.getElementById('todoForm');
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
+
             const data = {
+                itemId: form.itemId.value,
+                itemUUID: form.itemUUID.value,
+                itemHash: form.itemHash.value,
                 itemName: form.itemName.value,
                 itemDescription: form.itemDescription.value
             };
+
             const res = await fetch('/submittodoitem', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(data)
             });
+
             const result = await res.json();
             alert(JSON.stringify(result));
         });
